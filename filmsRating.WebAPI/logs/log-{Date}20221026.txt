@@ -1,0 +1,6 @@
+[00:48:11:368 INF ()] Application starting...
+[00:48:11:461 INF ()] Now listening on: https://localhost:7172
+[00:48:11:463 INF ()] Now listening on: http://localhost:5258
+[00:48:11:467 INF ()] Application started. Press Ctrl+C to shut down.
+[00:48:11:467 INF ()] Hosting environment: Development
+[00:48:11:467 INF ()] Content root path: C:\Projects\.Net\filmsRating.WebAPI\

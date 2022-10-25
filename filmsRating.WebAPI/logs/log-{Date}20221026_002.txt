@@ -1,0 +1,2 @@
+[01:01:11:460 INF (69b03149-d9db-4f0b-94fb-3a50fd40d9e4)] HTTP GET /swagger/index.html responded 200 in 84.9503 ms
+[01:01:11:661 INF (c4521fb5-4fde-49bb-bb1f-2704969b124d)] HTTP GET /swagger/v1/swagger.json responded 200 in 98.8088 ms
