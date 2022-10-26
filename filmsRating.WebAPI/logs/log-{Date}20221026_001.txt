@@ -1,9 +1,0 @@
-[00:48:13:062 INF (d94b5176-2296-4343-97cd-9c6785526a86)] HTTP GET /swagger/index.html responded 200 in 153.1879 ms
-[00:48:13:628 INF (aff0a3e7-522a-4e9e-8697-7558428d5006)] HTTP GET /swagger/v1/swagger.json responded 200 in 115.1474 ms
-[00:48:44:126 INF (8ab788e8-98bf-4552-b302-cd3f3803a1ac)] HTTP GET /WeatherForecast responded 200 in 20.3793 ms
-[01:01:11:043 INF ()] Application starting...
-[01:01:11:145 INF ()] Now listening on: https://localhost:7172
-[01:01:11:147 INF ()] Now listening on: http://localhost:5258
-[01:01:11:150 INF ()] Application started. Press Ctrl+C to shut down.
-[01:01:11:151 INF ()] Hosting environment: Development
-[01:01:11:151 INF ()] Content root path: C:\Projects\.Net\filmsRating.WebAPI\
