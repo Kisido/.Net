@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmsRating.WebAPI", "filmsRating.WebAPI\filmsRating.WebAPI.csproj", "{346A380A-1E65-4B47-A434-31B33D8D4A54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmsRating.Entities", "filmsRating.Entities\filmsRating.Entities.csproj", "{A1E8C1DC-FFB0-435A-BE8A-9C3B9DEE0A70}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "filmsRating.Repository", "filmsRating.Repository\filmsRating.Repository.csproj", "{98F3C278-6789-4582-BFA3-A9A12D6A4837}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{346A380A-1E65-4B47-A434-31B33D8D4A54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{346A380A-1E65-4B47-A434-31B33D8D4A54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{346A380A-1E65-4B47-A434-31B33D8D4A54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1E8C1DC-FFB0-435A-BE8A-9C3B9DEE0A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1E8C1DC-FFB0-435A-BE8A-9C3B9DEE0A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1E8C1DC-FFB0-435A-BE8A-9C3B9DEE0A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1E8C1DC-FFB0-435A-BE8A-9C3B9DEE0A70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98F3C278-6789-4582-BFA3-A9A12D6A4837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98F3C278-6789-4582-BFA3-A9A12D6A4837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98F3C278-6789-4582-BFA3-A9A12D6A4837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98F3C278-6789-4582-BFA3-A9A12D6A4837}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
