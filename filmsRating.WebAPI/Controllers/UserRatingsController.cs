@@ -7,43 +7,43 @@ using Microsoft.AspNetCore.Mvc;
 namespace filmsRating.Controllers
 {
     /// <summary>
-    /// Users endpoints
+    /// UserRatings endpoints
     /// </summary>
     [ProducesResponseType(200)]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersRatingsController : ControllerBase
     {
-        private readonly IUserService userService;
+        private readonly IUserRatingService userRatingService;
         private readonly IMapper mapper;
 
         /// <summary>
-        /// Users controller
+        /// UserRatings controller
         /// </summary>
-        public UsersController(IUserService userService, IMapper mapper)
+        public UsersRatingsController(IUserRatingService userRatingService, IMapper mapper)
         {
-            this.userService = userService;
+            this.userRatingService = userRatingService;
             this.mapper = mapper;
         }
 
         /// <summary>
-        /// Get users by pages
+        /// Get userRatings by pages
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult GetUsers([FromQuery] int limit = 20, [FromQuery] int offset = 0)
+        public IActionResult GetUserRatings([FromQuery] int limit = 20, [FromQuery] int offset = 0)
         {
-            var pageModel = userService.GetUsers(limit, offset);
-            return Ok(mapper.Map<PageResponse<UserPreviewResponse>>(pageModel));
+            var pageModel = userRatingService.GetUserRatings(limit, offset);
+            return Ok(mapper.Map<PageResponse<UserRatingPreviewResponse>>(pageModel));
         }
 
         /// <summary>
-        /// Update user
+        /// Update userRating
         /// </summary>
         [HttpPut]
         [Route("{id}")]
-        public IActionResult UpdateUser([FromRoute] Guid id, [FromBody] UpdateUserRequest model)
+        public IActionResult UpdateUserRating([FromRoute] Guid id, [FromBody] UpdateUserRatingRequest model)
         {
             var validationResult = model.Validate();
             if (!validationResult.IsValid)
@@ -52,9 +52,9 @@ namespace filmsRating.Controllers
             }
             try
             {
-                var resultModel = userService.UpdateUser(id, mapper.Map<UpdateUserModel>(model));
+                var resultModel = userRatingService.UpdateUserRating(id, mapper.Map<UpdateUserRatingModel>(model));
 
-                return Ok(mapper.Map<UserResponse>(resultModel));
+                return Ok(mapper.Map<UserRatingResponse>(resultModel));
             }
             catch (Exception ex)
             {
@@ -63,15 +63,15 @@ namespace filmsRating.Controllers
         }
 
         /// <summary>
-        /// Delete user
+        /// Delete userRating
         /// </summary>
         [HttpDelete]
         [Route("{id}")]
-        public IActionResult DeleteUser([FromRoute] Guid id)
+        public IActionResult DeleteUserRating([FromRoute] Guid id)
         {
             try
             {
-                userService.DeleteUser(id);
+                userRatingService.DeleteUserRating(id);
                 return Ok();
             }
             catch (Exception ex)
@@ -81,27 +81,27 @@ namespace filmsRating.Controllers
         }
 
         /// <summary>
-        /// Add user
+        /// Add userRating
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult AddUser([FromBody] UserModel user)
+        public IActionResult AddUserRating([FromBody] UserRatingModel userRating)
         {
-            var response = userService.AddUser(user);
+            var response = userRatingService.AddUserRating(userRating);
             return Ok(response);
         }
 
         /// <summary>
-        /// Get user
+        /// Get userRating
         /// </summary>
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetUser([FromRoute] Guid id)
+        public IActionResult GetUserRating([FromRoute] Guid id)
         {
             try
             {
-                var userModel = userService.GetUser(id);
-                return Ok(mapper.Map<UserResponse>(userModel));
+                var userRatingModel = userRatingService.GetUserRating(id);
+                return Ok(mapper.Map<UserRatingResponse>(userRatingModel));
             }
             catch (Exception ex)
             {

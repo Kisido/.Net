@@ -1,40 +1,36 @@
 using filmsRating.WebAPI.AppConfiguration.ApplicationExtensions;
 using filmsRating.WebAPI.AppConfiguration.ServicesExtensions;
-using Serilog;
-using filmsRating.Entities;
-using Microsoft.EntityFrameworkCore;
 using filmsRating.Repository;
+using filmsRating.Services;
+using Serilog;
 
 
 var configuration = new ConfigurationBuilder()
 .AddJsonFile("appsettings.json", optional: false)
 .Build();
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.AddSerilogConfiguration(); //Add serilog
+builder.AddSerilogConfiguration(); 
 builder.Services.AddDbContextConfiguration(configuration);
-builder.Services.AddVersioningConfiguration(); //add api versioning
+builder.Services.AddVersioningConfiguration();
+builder.Services.AddMapperConfiguration();
+builder.Services.AddSwaggerConfiguration();
+builder.Services.AddRepositoryConfiguration();
+builder.Services.AddBusinessLogicConfiguration();
 builder.Services.AddControllers();
-builder.Services.AddSwaggerConfiguration(); //add swagger configuration
-
-builder.Services.AddScoped<DbContext, Context>();
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 var app = builder.Build();
 
 app.UseSerilogConfiguration(); 
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwaggerConfiguration(); //use swagger
+    app.UseSwaggerConfiguration();
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
-
 app.MapControllers();
 
 try

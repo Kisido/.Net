@@ -7,43 +7,43 @@ using Microsoft.AspNetCore.Mvc;
 namespace filmsRating.Controllers
 {
     /// <summary>
-    /// Users endpoints
+    /// Movies endpoints
     /// </summary>
     [ProducesResponseType(200)]
     [ApiVersion("1.0")]
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class MoviesController : ControllerBase
     {
-        private readonly IUserService userService;
+        private readonly IMovieService movieService;
         private readonly IMapper mapper;
 
         /// <summary>
-        /// Users controller
+        /// Movies controller
         /// </summary>
-        public UsersController(IUserService userService, IMapper mapper)
+        public MoviesController(IMovieService movieService, IMapper mapper)
         {
-            this.userService = userService;
+            this.movieService = movieService;
             this.mapper = mapper;
         }
 
         /// <summary>
-        /// Get users by pages
+        /// Get movies by pages
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public IActionResult GetUsers([FromQuery] int limit = 20, [FromQuery] int offset = 0)
+        public IActionResult GetMovies([FromQuery] int limit = 20, [FromQuery] int offset = 0)
         {
-            var pageModel = userService.GetUsers(limit, offset);
-            return Ok(mapper.Map<PageResponse<UserPreviewResponse>>(pageModel));
+            var pageModel = movieService.GetMovies(limit, offset);
+            return Ok(mapper.Map<PageResponse<MoviePreviewResponse>>(pageModel));
         }
 
         /// <summary>
-        /// Update user
+        /// Update movie
         /// </summary>
         [HttpPut]
         [Route("{id}")]
-        public IActionResult UpdateUser([FromRoute] Guid id, [FromBody] UpdateUserRequest model)
+        public IActionResult UpdateMovie([FromRoute] Guid id, [FromBody] UpdateMovieRequest model)
         {
             var validationResult = model.Validate();
             if (!validationResult.IsValid)
@@ -52,9 +52,9 @@ namespace filmsRating.Controllers
             }
             try
             {
-                var resultModel = userService.UpdateUser(id, mapper.Map<UpdateUserModel>(model));
+                var resultModel = movieService.UpdateMovie(id, mapper.Map<UpdateMovieModel>(model));
 
-                return Ok(mapper.Map<UserResponse>(resultModel));
+                return Ok(mapper.Map<MovieResponse>(resultModel));
             }
             catch (Exception ex)
             {
@@ -63,15 +63,15 @@ namespace filmsRating.Controllers
         }
 
         /// <summary>
-        /// Delete user
+        /// Delete movie
         /// </summary>
         [HttpDelete]
         [Route("{id}")]
-        public IActionResult DeleteUser([FromRoute] Guid id)
+        public IActionResult DeleteMovie([FromRoute] Guid id)
         {
             try
             {
-                userService.DeleteUser(id);
+                movieService.DeleteMovie(id);
                 return Ok();
             }
             catch (Exception ex)
@@ -81,27 +81,27 @@ namespace filmsRating.Controllers
         }
 
         /// <summary>
-        /// Add user
+        /// Add movie
         /// </summary>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult AddUser([FromBody] UserModel user)
+        public IActionResult AddMovie([FromBody] MovieModel movie)
         {
-            var response = userService.AddUser(user);
+            var response = movieService.AddMovie(movie);
             return Ok(response);
         }
 
         /// <summary>
-        /// Get user
+        /// Get movie
         /// </summary>
         [HttpGet]
         [Route("{id}")]
-        public IActionResult GetUser([FromRoute] Guid id)
+        public IActionResult GetMovie([FromRoute] Guid id)
         {
             try
             {
-                var userModel = userService.GetUser(id);
-                return Ok(mapper.Map<UserResponse>(userModel));
+                var movieModel = movieService.GetMovie(id);
+                return Ok(mapper.Map<MovieResponse>(movieModel));
             }
             catch (Exception ex)
             {

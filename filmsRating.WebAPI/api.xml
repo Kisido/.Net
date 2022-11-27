@@ -32,6 +32,12 @@
             </summary>
             <param name="builder"></param>
         </member>
+        <member name="M:filmsRating.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddMapperConfiguration(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Add serilog configuration
+            </summary>
+            <param name="builder"></param>
+        </member>
         <member name="M:filmsRating.WebAPI.AppConfiguration.ServicesExtensions.ServicesExtensions.AddSerilogConfiguration(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
             <summary>
             Add serilog configuration
@@ -50,43 +56,254 @@
             </summary>
             <param name="services"></param>
         </member>
-        <member name="T:filmsRating.WebAPI.Controller.UsersController">
+        <member name="T:filmsRating.Controllers.ActorsController">
+            <summary>
+            Actors endpoints
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.ActorsController.#ctor(filmsRating.Services.Abstract.IActorService,AutoMapper.IMapper)">
+            <summary>
+            Actors controller
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.ActorsController.GetActors(System.Int32,System.Int32)">
+            <summary>
+            Get actors by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.ActorsController.DeleteActor(System.Guid)">
+            <summary>
+            Delete actor
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.ActorsController.AddActor(filmsRating.Services.Models.ActorModel)">
+            <summary>
+            Add Actor
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.ActorsController.GetActor(System.Guid)">
+            <summary>
+            Get actor
+            </summary>
+        </member>
+        <member name="T:filmsRating.Controllers.CountrysController">
+            <summary>
+            Countrys endpoints
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.CountrysController.#ctor(filmsRating.Services.Abstract.ICountryService,AutoMapper.IMapper)">
+            <summary>
+            Countrys controller
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.CountrysController.GetCountrys(System.Int32,System.Int32)">
+            <summary>
+            Get countrys by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.CountrysController.DeleteCountry(System.Guid)">
+            <summary>
+            Delete country
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.CountrysController.AddCountry(filmsRating.Services.Models.CountryModel)">
+            <summary>
+            Add Country
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.CountrysController.GetCountry(System.Guid)">
+            <summary>
+            Get country
+            </summary>
+        </member>
+        <member name="T:filmsRating.Controllers.GenresController">
+            <summary>
+            Genres endpoints
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.GenresController.#ctor(filmsRating.Services.Abstract.IGenreService,AutoMapper.IMapper)">
+            <summary>
+            Genres controller
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.GenresController.GetGenres(System.Int32,System.Int32)">
+            <summary>
+            Get genres by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.GenresController.DeleteGenre(System.Guid)">
+            <summary>
+            Delete genre
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.GenresController.AddGenre(filmsRating.Services.Models.GenreModel)">
+            <summary>
+            Add genre
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.GenresController.GetGenre(System.Guid)">
+            <summary>
+            Get genre
+            </summary>
+        </member>
+        <member name="T:filmsRating.Controllers.MovieActorsController">
+            <summary>
+            MovieActors endpoints
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.MovieActorsController.#ctor(filmsRating.Services.Abstract.IMovieActorService,AutoMapper.IMapper)">
+            <summary>
+            MovieActors controller
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.MovieActorsController.GetMovieActors(System.Int32,System.Int32)">
+            <summary>
+            Get movieActors by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.MovieActorsController.GetMovieActor(System.Guid)">
+            <summary>
+            Get movieActor
+            </summary>
+        </member>
+        <member name="T:filmsRating.Controllers.MovieGenresController">
+            <summary>
+            MovieGenres endpoints
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.MovieGenresController.#ctor(filmsRating.Services.Abstract.IMovieGenreService,AutoMapper.IMapper)">
+            <summary>
+            MovieGenres controller
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.MovieGenresController.GetMovieGenres(System.Int32,System.Int32)">
+            <summary>
+            Get movieGenres by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.MovieGenresController.GetMovieGenre(System.Guid)">
+            <summary>
+            Get movieGenre
+            </summary>
+        </member>
+        <member name="T:filmsRating.Controllers.MoviesController">
+            <summary>
+            Movies endpoints
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.MoviesController.#ctor(filmsRating.Services.Abstract.IMovieService,AutoMapper.IMapper)">
+            <summary>
+            Movies controller
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.MoviesController.GetMovies(System.Int32,System.Int32)">
+            <summary>
+            Get movies by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.MoviesController.UpdateMovie(System.Guid,filmsRating.WebAPI.Models.UpdateMovieRequest)">
+            <summary>
+            Update movie
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.MoviesController.DeleteMovie(System.Guid)">
+            <summary>
+            Delete movie
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.MoviesController.AddMovie(filmsRating.Services.Models.MovieModel)">
+            <summary>
+            Add movie
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.MoviesController.GetMovie(System.Guid)">
+            <summary>
+            Get movie
+            </summary>
+        </member>
+        <member name="T:filmsRating.Controllers.UsersRatingsController">
+            <summary>
+            UserRatings endpoints
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.UsersRatingsController.#ctor(filmsRating.Services.Abstract.IUserRatingService,AutoMapper.IMapper)">
+            <summary>
+            UserRatings controller
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.UsersRatingsController.GetUserRatings(System.Int32,System.Int32)">
+            <summary>
+            Get userRatings by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.UsersRatingsController.UpdateUserRating(System.Guid,filmsRating.WebAPI.Models.UpdateUserRatingRequest)">
+            <summary>
+            Update userRating
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.UsersRatingsController.DeleteUserRating(System.Guid)">
+            <summary>
+            Delete userRating
+            </summary>
+        </member>
+        <member name="M:filmsRating.Controllers.UsersRatingsController.AddUserRating(filmsRating.Services.Models.UserRatingModel)">
+            <summary>
+            Add userRating
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.UsersRatingsController.GetUserRating(System.Guid)">
+            <summary>
+            Get userRating
+            </summary>
+        </member>
+        <member name="T:filmsRating.Controllers.UsersController">
             <summary>
             Users endpoints
             </summary>
         </member>
-        <member name="M:filmsRating.WebAPI.Controller.UsersController.#ctor(filmsRating.Repository.IRepository{filmsRating.Entities.Models.User})">
+        <member name="M:filmsRating.Controllers.UsersController.#ctor(filmsRating.Services.Abstract.IUserService,AutoMapper.IMapper)">
             <summary>
             Users controller
             </summary>
         </member>
-        <member name="M:filmsRating.WebAPI.Controller.UsersController.GetUsers">
+        <member name="M:filmsRating.Controllers.UsersController.GetUsers(System.Int32,System.Int32)">
             <summary>
-            Get users
+            Get users by pages
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.UsersController.UpdateUser(System.Guid,filmsRating.WebAPI.Models.UpdateUserRequest)">
+            <summary>
+            Update user
             </summary>
         </member>
-        <member name="M:filmsRating.WebAPI.Controller.UsersController.GetUser(System.Guid)">
-            <summary>
-            Get user
-            </summary>
-        </member>
-        <member name="M:filmsRating.WebAPI.Controller.UsersController.SaveUser(filmsRating.Entities.Models.User)">
-            <summary>
-            Save user
-            </summary>
-            <param name="user"></param>
-        </member>
-        <member name="M:filmsRating.WebAPI.Controller.UsersController.DeleteUser(filmsRating.Entities.Models.User)">
+        <member name="M:filmsRating.Controllers.UsersController.DeleteUser(System.Guid)">
             <summary>
             Delete user
             </summary>
-            <param name="user"></param>
         </member>
-        <member name="M:filmsRating.WebAPI.Controller.UsersController.ReplaceUser(filmsRating.Entities.Models.User)">
+        <member name="M:filmsRating.Controllers.UsersController.AddUser(filmsRating.Services.Models.UserModel)">
             <summary>
-            Replace user
+            Add user
             </summary>
-            <param name="user"></param>
+            <returns></returns>
+        </member>
+        <member name="M:filmsRating.Controllers.UsersController.GetUser(System.Guid)">
+            <summary>
+            Get user
+            </summary>
         </member>
     </members>
 </doc>
